@@ -1,36 +1,93 @@
 # Force Equals
 
-## Description
-This project is a Node.js application that includes an API. It is structured with the following key files and folders:
+## Overview
+This repository contains two main components:
 
-- `app.js`: Main application logic.
-- `index.js`: Entry point of the application.
-- `package.json`: Contains project metadata and dependencies.
-- `__tests__/`: Directory containing test files, such as `api.test.js`.
+1. **LinkedIn Profile Enhancer (Widget)**
+   - A Chrome extension that enhances LinkedIn profile pages by injecting a widget showing match score and account status for companies.
+2. **Target Account API (Backend)**
+   - A Node.js/Express API for managing and serving target account data.
 
-## Installation
-1. Clone the repository:
+---
+
+## 1. LinkedIn Profile Enhancer (Extension)
+
+**Location:** `widget/`
+
+### Features
+- Injects a styled widget into LinkedIn profile pages (`linkedin.com/in/*`).
+- Displays company match score and account status.
+- Widget can be minimized, closed, and toggled with a floating button styled to match LinkedIn.
+- Responsive and robust: works even if LinkedIn's sidebar is missing.
+- Uses local sample data by default, but can be connected to a backend API.
+
+### Key Files
+- `manifest.json`: Chrome extension manifest (MV3).
+- `content.js`: Main content script for widget injection and logic.
+- `data.js`: Sample profile data (can be replaced with API calls).
+- `styles.css`: LinkedIn-like styling for widget and floating button.
+- `icon.png`: Extension icon.
+
+### Installation & Usage
+1. Go to `chrome://extensions` and enable Developer Mode.
+2. Click "Load unpacked" and select the `widget/` folder.
+3. Visit any LinkedIn profile (e.g., `https://www.linkedin.com/in/username/`).
+4. The widget will appear in the sidebar or as a floating panel.
+
+---
+
+## 2. Target Account API (Backend)
+
+**Location:** `backend/`
+
+### Features
+- Express.js REST API for login and managing account status.
+- JWT authentication.
+- Endpoints:
+  - `POST /login` — Authenticate and receive a JWT.
+  - `GET /accounts` — List all accounts (auth required).
+  - `POST /accounts/:id/status` — Update account status (auth required).
+- Includes Jest tests in `__tests__/`.
+
+### Installation & Usage
+1. Navigate to the `backend/` directory:
    ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd Force Equals
-   ```
-3. Install dependencies:
-   ```bash
+   cd backend
    npm install
    ```
-
-## Usage
-1. Start the application:
+2. Start the API server:
    ```bash
-   npm start
+   node index.js
    ```
-2. Run tests:
+3. Run tests:
    ```bash
    npm test
    ```
+
+---
+
+## Project Structure
+```
+Force Equals/
+│
+├── backend/           # Node.js API for target accounts
+│   ├── app.js
+│   ├── index.js
+│   ├── package.json
+│   └── __tests__/
+│       └── api.test.js
+│
+├── widget/            # Chrome extension for LinkedIn
+│   ├── content.js
+│   ├── data.js
+│   ├── manifest.json
+│   ├── styles.css
+│   └── icon.png
+│
+└── README.md
+```
+
+---
 
 ## Contributing
 Feel free to fork the repository and submit pull requests.
