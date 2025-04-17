@@ -1,0 +1,144 @@
+/* Widget container - now designed to fit within LinkedIn UI */
+.enhancer-widget-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  margin-bottom: 16px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Fixed position fallback when sidebar is not available */
+#enhancer-widget.fixed-position {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 280px;
+  z-index: 9999;
+}
+
+/* Widget header with controls */
+.enhancer-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid #f3f2ef;
+}
+
+.enhancer-widget-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.9);
+}
+
+.enhancer-widget-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.widget-control-btn {
+  background: transparent;
+  border: none;
+  color: rgba(0,0,0,0.6);
+  cursor: pointer;
+  font-size: 16px;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.widget-control-btn:hover {
+  background-color: rgba(0,0,0,0.08);
+}
+
+/* Widget content */
+.enhancer-widget-content {
+  padding: 12px 16px 16px;
+}
+
+/* Progress bar */
+.progress {
+  width: 100%;
+  background-color: #f3f2ef;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 8px;
+  margin-top: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #0a66c2; /* LinkedIn blue */
+}
+
+/* Status badge */
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: white;
+  margin-top: 8px;
+}
+
+.status.Target {
+  background-color: #057642; /* Green that matches LinkedIn's palette */
+}
+
+.status.Not-Target {
+  background-color: #b74700; /* Red that matches LinkedIn's palette */
+}
+
+/* Floating button when widget is hidden */
+.show-widget-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: #0a66c2; /* LinkedIn blue */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+.show-widget-button:hover {
+  background: #004182; /* Darker blue on hover */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+  #enhancer-widget.fixed-position {
+    top: auto;
+    bottom: 70px;
+    right: 16px;
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #enhancer-widget.fixed-position {
+    width: calc(100% - 32px);
+    left: 16px;
+    bottom: 16px;
+  }
+  
+  .show-widget-button {
+    bottom: 16px;
+    right: 16px;
+  }
+}

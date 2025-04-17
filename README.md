@@ -15,7 +15,7 @@ This project is a Node.js application that includes an API. It is structured wit
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Force\ Equals
+   cd Force Equals
    ```
 3. Install dependencies:
    ```bash
